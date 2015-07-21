@@ -25,7 +25,9 @@ int QueueDinamica::dequeue()
 
 	NodoS* nodoViejo = head;
 	int valorViejo = head->dato;
-	tail = (head == tail) ? nullptr : tail; // para evitar el dangling pointer
+	
+	if (head == tail) tail = nullptr;// para evitar el dangling pointer
+	
 	head = head->next;
 	delete nodoViejo;
 	--size;
