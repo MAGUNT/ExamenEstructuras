@@ -30,6 +30,7 @@ int StackDinamico::pop()
 	topNodo = topNodo->next;
 
 	delete nodoViejo;
+	--tamano;
 
 	return datoViejo;
 }
@@ -41,6 +42,7 @@ int StackDinamico::top()
 void StackDinamico::push(int elemento)
 {
 	topNodo = new NodoS(elemento, topNodo);
+	++tamano;
 }
 bool StackDinamico::empty()
 {
