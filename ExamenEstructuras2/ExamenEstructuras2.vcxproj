@@ -84,6 +84,8 @@
     <ClInclude Include="BiQueue.h" />
     <ClInclude Include="NodoD.h" />
     <ClInclude Include="NodoS.h" />
+    <ClInclude Include="Priority.h" />
+    <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="QueueDinamica.h" />
     <ClInclude Include="QueueEstatica.h" />
@@ -96,6 +98,8 @@
     <ClCompile Include="ExamenEstructuras2.cpp" />
     <ClCompile Include="NodoD.cpp" />
     <ClCompile Include="NodoS.cpp" />
+    <ClCompile Include="Priority.cpp" />
+    <ClCompile Include="PriorityQueue.cpp" />
     <ClCompile Include="QueueDinamica.cpp" />
     <ClCompile Include="QueueEstatica.cpp" />
     <ClCompile Include="StackDinamico.cpp" />

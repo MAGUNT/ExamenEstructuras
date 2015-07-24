@@ -59,3 +59,45 @@ unsigned QueueDinamica::length()
 {
 	return size;
 }
+bool QueueDinamica::remove(int item)
+{
+	if (empty()) return false;
+
+	NodoS *nodo = head;
+
+	if (head->dato == item)
+	{
+		NodoS *borrar = head;
+		head = head->next;
+		delete borrar;
+		--size;
+		return true;
+	}
+
+	while (nodo->next != nullptr && item != nodo->next->dato)
+		nodo = nodo->next;
+	
+	bool exist = nodo->next != nullptr;
+	if (exist) deleteNext(nodo);
+	
+	return exist;
+
+}
+void QueueDinamica::deleteNext(NodoS* nodo)
+{
+	NodoS *borrar = nodo->next;
+	nodo->next = nodo->next->next;
+	delete borrar;
+	--size;
+}
+std::ostream&  QueueDinamica::dump(std::ostream& os)
+{
+	NodoS *nodo = head;
+
+	while (nodo->next != nullptr)
+	{
+		os << nodo->dato << ", ";
+		nodo = nodo->next;
+	}
+	return os << nodo->dato;
+}
