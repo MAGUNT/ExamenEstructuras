@@ -1,24 +1,36 @@
 /*
- * UIListas.h
+ * UIExamen.h
  *
  *  Created on: Jun 21, 2015
  *      Author: daniel
  */
 
-#ifndef UI_UILISTAS_H_
-#define UI_UILISTAS_H_
+#ifndef UI_UIExamen_H_
+#define UI_UIExamen_H_
+#include "EstructuraDeExamen.h"
+#include "BiQueue.h"
+#include "PriorityQueue.h"
+#include "Queue.h"
+#include "QueueDinamica.h"
+#include "QueueEstatica.h"
+#include "StackDinamico.h"
+#include "StackEstatico.h"
 
 
-class UIListas {
+class UIExamen {
 private:
+	EstructuraDeExamen *estructura;
+
 	int capturarEntero();
+	void setEstructura(int pestructura);
 
 public:
-	UIListas();
-	virtual ~UIListas();
+	UIExamen();
+	virtual ~UIExamen();
 	void init();
+	void indicarEstructura();
 	void mostrarMenu();
 	bool ejecutarOpcion(int opcion);
 };
 
-#endif /* UI_UILISTAS_H_ */
+#endif /* UI_UIExamen_H_ */

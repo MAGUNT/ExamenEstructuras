@@ -1,5 +1,5 @@
 /*
- * UIListas.cpp
+ * UIExamen.cpp
  *
  *  Created on: Jun 21, 2015
  *      Author: daniel
@@ -9,30 +9,31 @@
 #include <iostream>
 #include <sstream>
 
-UIListas::UIListas() {
+UIExamen::UIExamen() {
 
 }
 
-UIListas::~UIListas() {
+UIExamen::~UIExamen() {
 }
 
 int main() {
-	UIListas ui = new UIListas();
+	UIExamen ui = new UIExamen();
 	ui.init();
 	return 0;
 }
 
-void UIListas::init() {
+void UIExamen::init() {
 	bool continuar = true;
 
 	do {
+		this->indicarEstructura();
 		this->mostrarMenu();
 		int opcion = this->capturarEntero();
 		continuar = this->ejecutarOpcion(opcion);
 	} while (continuar);
 }
 
-bool UIListas::ejecutarOpcion(int opcion) {
+bool UIExamen::ejecutarOpcion(int opcion) {
 	int carnetExistente;
 	int indice;
 	tEstudiante* estudiante;
@@ -156,33 +157,77 @@ bool UIListas::ejecutarOpcion(int opcion) {
 	return continuar;
 }
 
-void UIListas::mostrarMenu() {
+void UIExamen::indicarEstructura() {
+	int numEstructra = 0;
+
+	std::cout << "" << std::endl;
+	std::cout << "-------------------" << std::endl;
+	std::cout << "" << std::endl;
+
+	std::cout << "Seleccione una estructura a utilizar:" << std::endl;
+	std::cout << "1.  Cola estatica" << std::endl;
+	std::cout << "2.  Cola dinamica" << std::endl;
+	std::cout << "3.  Pila estatica" << std::endl;
+	std::cout << "4.  Pila dinamica" << std::endl;
+	std::cout << "5.  Bicola" << std::endl;
+	std::cout << "6.  Cola prioridades" << std::endl;
+
+	numEstructra = this->capturarEntero();
+	setEstructura(numEstructra);
+}
+
+void UIExamen::mostrarMenu() {
 	std::cout << "" << std::endl;
 	std::cout << "-------------------" << std::endl;
 	std::cout << "" << std::endl;
 
 	std::cout << "Seleccione una opcion:" << std::endl;
-	std::cout << "1.  Insertar Estudiante inicio" << std::endl;
-	std::cout << "2.  Inserta Estudiante final" << std::endl;
-	std::cout << "3.  Inserta Estudiante antes de ..." << std::endl;
-	std::cout << "4.  Inserta Estudiante despues de ..." << std::endl;
-	std::cout << "5.  Inserta Estudiante ascendente" << std::endl;
-	std::cout << "6.  Interta Estudiante descendente" << std::endl;
-	std::cout << "7.  Inserta Estudiante en el indice ..." << std::endl;
-	std::cout << "8.  Eliminar Estudiante" << std::endl;
-	std::cout << "9.  Eliminar Estudiante en el indice" << std::endl;
-	std::cout << "10. Vaciar lista" << std::endl;
-	std::cout << "11. Esta vacia?" << std::endl;
-	std::cout << "12. Obtener Estudiante" << std::endl;
-	std::cout << "13. Obtener Estudiante en el indice" << std::endl;
-	std::cout << "14. Modificar Estudiante" << std::endl;
-	std::cout << "15. Modificar Estudiante en el indice ..." << std::endl;
-	std::cout << "16. Mostrar Estudiantes en la lista" << std::endl;
-	std::cout << "17. Obtener largo de la lista" << std::endl;
-	std::cout << "18. Salir de la aplicacion" << std::endl;
+	std::cout << "1.  Indicar estructura" << std::endl;
+	std::cout << "2.  Insertar numero al final" << std::endl;
+	std::cout << "3.  Inserta numero a la derecha " << std::endl;
+	std::cout << "4.  Inserta numero a la izquierda " << std::endl;
+	std::cout << "5.  Remover numero" << std::endl;
+	std::cout << "6.  Remover numero a la derecha" << std::endl;
+	std::cout << "7.  Remover numero a la izquierda" << std::endl;
+	std::cout << "8. Vaciar lista" << std::endl;
+	std::cout << "9. Esta vacia?" << std::endl;
+	std::cout << "10. Obtener numero" << std::endl;
+	std::cout << "11. Mostrar numeros en la lista" << std::endl;
+	std::cout << "12. Salir de la aplicacion" << std::endl;
 }
 
-int UIListas::capturarEntero() {
+void UIExamen::setEstructura(int pestructura) {
+	switch (pestructura){
+		case 1:	
+			estructura = new QueueEstatica();
+			break;
+
+		case 2:	
+			estructura = new QueueDinamica();
+			break;
+
+		case 3:
+			estructura = new StackEstatico();
+			break;
+
+		case 4:
+			estructura = new StackDinamico();
+			break;
+
+		case 5:
+			estructura = new BiQueue();
+			break;
+
+		case 6:	// inserta descendente
+			estructura = new PriorityQueue();
+			break;
+
+		default:
+			estructura = null;
+	}
+}
+
+int UIExamen::capturarEntero() {
 	std::string linea;
 	int opcion;
 
