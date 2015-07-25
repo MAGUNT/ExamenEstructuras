@@ -99,7 +99,7 @@ void pruebaPriorityQueue(EstructuraDeExamen* p)
 	while (!p->empty())
 		std::cout << p->removeItem() << std::endl;
 
-	//delete p; no sirve verificar porque
+	delete p; 
 	system("pause");
 
 }
@@ -114,10 +114,9 @@ void poli(EstructuraDeExamen* es)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	auto s = new QueueEstatica(10);
-	pruebaQueue(s);
-	pruebaQueue(s);
-	delete s;
+	
+	pruebaPriorityQueue(new PriorityQueue());
+	
 
 }
 
