@@ -45,7 +45,7 @@ unsigned StackEstatico::length()
 }
 std::ostream&  StackEstatico::dump(std::ostream& os)
 {
-	for (unsigned i = 0; i < tamano; ++i)
+	for (int i = tamano-1; i >= 0; --i)
 	{
 		os << arreglo[i] << ", ";
 	}

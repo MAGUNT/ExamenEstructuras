@@ -3,7 +3,7 @@
 
 QueueEstatica::QueueEstatica() :QueueEstatica(20){}
 QueueEstatica::QueueEstatica(unsigned pmaxSize) 
-	: size(0), tail(0), head(0), maxsize(pmaxSize), arreglo(new int[pmaxSize]){}
+	: size(0), tail(0), head(0), maxsize(pmaxSize+1), arreglo(new int[pmaxSize]){}
 
 QueueEstatica::~QueueEstatica()
 {

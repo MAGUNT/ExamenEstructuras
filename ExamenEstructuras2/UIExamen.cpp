@@ -4,7 +4,7 @@
  *  Created on: Jun 21, 2015
  *      Author: daniel
  */
-
+/*
 #include "UIExamen.h"
 #include <iostream>
 #include <sstream>
@@ -195,3 +195,4 @@ int UIListas::capturarEntero() {
 	return opcion;
 }
 
+*/

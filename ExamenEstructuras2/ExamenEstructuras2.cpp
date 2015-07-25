@@ -9,7 +9,7 @@
 #include "BiQueue.h"
 #include <ostream>
 
-void pruebaQueue(Queue* q)
+void pruebaQueue(EstructuraDeExamen* q)
 {
 
 
@@ -17,7 +17,7 @@ void pruebaQueue(Queue* q)
 	for (int i = 0; i < 20; i += 2)
 		q->enqueue(i);
 
-	//q->dump(std::cout) << std::endl;
+	q->dump(std::cout) << std::endl;
 	std::cout << "length" << q->length() << std::endl;
 	for (int i = 0, size = q->length(); i < size; ++i)
 	{
@@ -26,33 +26,33 @@ void pruebaQueue(Queue* q)
 		std::cout << "first " << q->first();
 		std::cout << " dequeue " << q->dequeue() << std::endl;
 	}
-	delete q;
 	system("pause");
 
 
 
 }
-void pruebaStack(Stack* s)
+void pruebaStack(EstructuraDeExamen* s)
 {
 	for (int i = 0; i < 20; ++i)
 		s->push(i);
 
 
-	std::cout << "length " << s->size() << std::endl;
+	std::cout << "length " << s->length() << std::endl;
+	s->dump(std::cout);
 
-	for (int i = 0, size = s->size(); i < size; ++i)
+	for (int i = 0, size = s->length(); i < size; ++i)
 	{
 		std::cout << "Top " << s->top();
 		std::cout << "Pop " << s->pop() << std::endl;
 	}
-	delete s;
+
 	system("pause");
 }
 
-void pruebaBiCola()
+void pruebaBiCola(EstructuraDeExamen* q)
 {
 	
-	BiQueue *q = new BiQueue();
+	
 
 
 	for (int i = 0; i < 10; ++i)
@@ -65,6 +65,9 @@ void pruebaBiCola()
 		q->enqueueRigth(i);
 	}
 	q->enqueueLeft(200);
+
+	q->dump(std::cout);
+
 	for (int i = 0, size = q->length(); i < size; ++i)
 	{
 		std::cout<<"Left "<<q->left();
@@ -75,15 +78,16 @@ void pruebaBiCola()
 	delete q;
 }
 
-void pruebaPriorityQueue()
+void pruebaPriorityQueue(EstructuraDeExamen* p)
 {
 
-	PriorityQueue *p = new PriorityQueue();
+	
 
 	for (int i = 0; i < 10; ++i)
 		for (int j = 0; j < 8; ++j)
 			p->addItem(i * 8 + j, i);
-
+	
+	p->addItem(20000, -1);
 	p->dump(std::cout);
 
 	p->changePriority(6, 4);
@@ -95,7 +99,7 @@ void pruebaPriorityQueue()
 	while (!p->empty())
 		std::cout << p->removeItem() << std::endl;
 
-	delete p;
+	//delete p; no sirve verificar porque
 	system("pause");
 
 }
@@ -110,11 +114,10 @@ void poli(EstructuraDeExamen* es)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	poli(new StackDinamico());
-	poli(new StackEstatico(20));
-	poli(new PriorityQueue());
-
-
+	auto s = new QueueEstatica(10);
+	pruebaQueue(s);
+	pruebaQueue(s);
+	delete s;
 
 }
 

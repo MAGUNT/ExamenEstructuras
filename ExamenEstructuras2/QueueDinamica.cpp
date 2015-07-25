@@ -92,6 +92,7 @@ void QueueDinamica::deleteNext(NodoS* nodo)
 }
 std::ostream&  QueueDinamica::dump(std::ostream& os)
 {
+	if (empty()) return os;
 	NodoS *nodo = head;
 
 	while (nodo->next != nullptr)
