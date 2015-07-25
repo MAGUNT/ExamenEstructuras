@@ -87,10 +87,13 @@ unsigned BiQueue::length()
 }
 std::ostream&   BiQueue::dump(std::ostream& os)
 {
+	if (empty()) return os;
+
 	NodoD *nodo = head;
 	while (nodo->next != nullptr)
 	{
 		os << nodo->dato << ", ";
+		nodo = nodo->next;
 	}
 	return os << nodo->dato<<std::endl;
 }

@@ -15,8 +15,8 @@ PriorityQueue::~PriorityQueue()
 		do
 		{
 			Priority *borrar = p;
-			delete borrar;
 			p = p->next;
+			delete borrar;
 
 		} while (head != p);
 	}

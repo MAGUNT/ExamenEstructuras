@@ -60,6 +60,7 @@ std::ostream&  StackDinamico::dump(std::ostream& os)
 	while (nodo->next != nullptr)
 	{
 		os << nodo->dato <<", ";
+		nodo = nodo->next;
 	}
 	return os << nodo->dato << std::endl;
 }

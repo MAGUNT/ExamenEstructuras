@@ -3,7 +3,7 @@
 
 QueueEstatica::QueueEstatica() :QueueEstatica(20){}
 QueueEstatica::QueueEstatica(unsigned pmaxSize) 
-	: size(0), tail(0), head(0), maxsize(pmaxSize), arreglo(new int[pmaxSize]){}
+	: size(0), tail(0), head(0), maxsize(pmaxSize+1), arreglo(new int[pmaxSize]){}
 
 QueueEstatica::~QueueEstatica()
 {
@@ -53,7 +53,7 @@ unsigned QueueEstatica::length()
 std::ostream&  QueueEstatica::dump(std::ostream& os)
 {
 
-	for (int i = head; i < tail; (++i) %= maxsize)
+	for (int i = head; i != tail; (++i) %= maxsize)
 		os << arreglo[i] <<", ";
 
 	return os<<std::endl;
