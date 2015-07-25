@@ -42,7 +42,7 @@ int PriorityQueue::removeItem()
 	--size;
 	return p->queue->dequeue();
 }
-unsigned PriorityQueue::getSize()
+unsigned PriorityQueue::length()
 {
 	return size;
 }
@@ -130,4 +130,9 @@ Priority * PriorityQueue::initPriority(int key)
 	head->prev = head;
 
 	return head;
+}
+std::string PriorityQueue::getNombre()
+{
+
+	return "Cola de prioridades";
 }

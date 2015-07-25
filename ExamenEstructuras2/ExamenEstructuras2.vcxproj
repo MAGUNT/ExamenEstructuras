@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BiQueue.h" />
+    <ClInclude Include="EstructuraDeExamen.h" />
     <ClInclude Include="NodoD.h" />
     <ClInclude Include="NodoS.h" />
     <ClInclude Include="Priority.h" />
@@ -92,9 +93,11 @@
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StackDinamico.h" />
     <ClInclude Include="StackEstatico.h" />
+    <ClInclude Include="UIExamen.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BiQueue.cpp" />
+    <ClCompile Include="EstructuraDeExamen.cpp" />
     <ClCompile Include="ExamenEstructuras2.cpp" />
     <ClCompile Include="NodoD.cpp" />
     <ClCompile Include="NodoS.cpp" />
@@ -104,6 +107,7 @@
     <ClCompile Include="QueueEstatica.cpp" />
     <ClCompile Include="StackDinamico.cpp" />
     <ClCompile Include="StackEstatico.cpp" />
+    <ClCompile Include="UIExamen.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

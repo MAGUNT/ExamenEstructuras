@@ -99,9 +99,22 @@ void pruebaPriorityQueue()
 	system("pause");
 
 }
+void poli(EstructuraDeExamen* es)
+{
+	es->push(10);
+	es->dump(std::cout);
+
+	system("pause");
+}
+
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	pruebaBiCola();
+	poli(new StackDinamico());
+	poli(new StackEstatico(20));
+	poli(new PriorityQueue());
+
+
+
 }
 

@@ -50,3 +50,11 @@ unsigned QueueEstatica::length()
 {
 	return size;
 }
+std::ostream&  QueueEstatica::dump(std::ostream& os)
+{
+
+	for (int i = head; i < tail; (++i) %= maxsize)
+		os << arreglo[i] <<", ";
+
+	return os<<std::endl;
+}

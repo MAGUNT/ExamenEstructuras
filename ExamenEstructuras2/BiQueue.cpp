@@ -85,3 +85,16 @@ unsigned BiQueue::length()
 { 
 	return size;
 }
+std::ostream&   BiQueue::dump(std::ostream& os)
+{
+	NodoD *nodo = head;
+	while (nodo->next != nullptr)
+	{
+		os << nodo->dato << ", ";
+	}
+	return os << nodo->dato<<std::endl;
+}
+ std::string  BiQueue::getNombre()
+{
+	return "BiCola";
+}

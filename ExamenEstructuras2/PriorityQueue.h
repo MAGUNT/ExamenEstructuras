@@ -1,18 +1,23 @@
 #pragma once
 #include "Priority.h"
 #include <iostream>
-class PriorityQueue
+#include "EstructuraDeExamen.h"
+
+class PriorityQueue: public EstructuraDeExamen
 {
 public:
 	PriorityQueue();
-	~PriorityQueue();
+	~PriorityQueue() override;
 
-	void addItem(int item, int key);
-	int removeItem();
-	unsigned getSize();
-	void changePriority(int item, int key);
-	bool empty(){ return size == 0; };
-	std::ostream&  dump(std::ostream&);
+	void addItem(int item, int key)override;
+	int removeItem() override;
+	unsigned length() override;
+	void changePriority(int item, int key) override;
+	bool empty()override{ return size == 0; };
+	std::ostream&  dump(std::ostream&) override;
+
+	std::string getNombre()override;
+
 private:
 	unsigned size;
 	Priority* head;

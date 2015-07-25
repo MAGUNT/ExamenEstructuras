@@ -1,9 +1,10 @@
 #pragma once
 
 #include "Stack.h"
+#include "EstructuraDeExamen.h"
 
-class StackEstatico final: 
-	public Stack
+class StackEstatico final : public EstructuraDeExamen
+	
 {
 public:
 	StackEstatico();
@@ -14,7 +15,9 @@ public:
 	void push(int) override;
 	bool empty() override;
 	bool full();
-	unsigned size() override;
+	unsigned length() override;
+	std::ostream&  dump(std::ostream&) override;
+	std::string getNombre()override{ return "Stack estatico"; }
 
 private:
 

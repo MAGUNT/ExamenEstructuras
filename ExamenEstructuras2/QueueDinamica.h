@@ -2,8 +2,8 @@
 #include "Queue.h"
 #include "NodoS.h"
 #include <iostream>
-
-class QueueDinamica: public Queue
+#include "EstructuraDeExamen.h"
+class QueueDinamica: public EstructuraDeExamen
 {
 
 	friend class PriorityQueue;
@@ -25,7 +25,8 @@ public:
 	bool empty() override;
 	int first() override;
 	unsigned length() override;
-	std::ostream& dump(std::ostream&);
+	std::ostream& dump(std::ostream&) override;
+	virtual std::string getNombre(){ return "Cola dinamica"; }
 
 
 

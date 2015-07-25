@@ -49,7 +49,17 @@ bool StackDinamico::empty()
 	return topNodo == nullptr;
 }
 
-unsigned StackDinamico::size()
+unsigned StackDinamico::length()
 {
 	return tamano;
+}
+
+std::ostream&  StackDinamico::dump(std::ostream& os)
+{
+	NodoS *nodo = topNodo;
+	while (nodo->next != nullptr)
+	{
+		os << nodo->dato <<", ";
+	}
+	return os << nodo->dato << std::endl;
 }

@@ -1,9 +1,10 @@
 #pragma once
 #include "Stack.h"
 #include "NodoS.h"
+#include "EstructuraDeExamen.h"
 
 
-class StackDinamico: public Stack
+class StackDinamico final : public EstructuraDeExamen
 {
 private:
 	NodoS* topNodo;
@@ -12,13 +13,15 @@ private:
 
 public:
 	StackDinamico();
-	~StackDinamico();
+	~StackDinamico() override;
 	
 	int pop() override;
 	int top() override;
 	void push(int) override;
 	bool empty() override;
-	unsigned size() override;
+	unsigned length() override;
+	std::ostream&  dump(std::ostream&) override;
+	std::string getNombre()override{ return "Stack dinamico"; }
 
 };
 

@@ -39,7 +39,16 @@ bool StackEstatico::full()
 {
 	return tamano == tamanoMax;
 }
-unsigned StackEstatico::size()
+unsigned StackEstatico::length()
 {
 	return tamano;
+}
+std::ostream&  StackEstatico::dump(std::ostream& os)
+{
+	for (unsigned i = 0; i < tamano; ++i)
+	{
+		os << arreglo[i] << ", ";
+	}
+
+	return os<<std::endl;
 }
